@@ -1,0 +1,35 @@
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.stats import binom
+
+# the number of trials 
+n = 10
+p = 0.5
+x = np.arange(0, n+1)
+pmf = binom.pmf(x,n,p)
+
+cdf = binom.cdf(x,n,p)
+
+print(x)
+print(pmf)
+print(cdf)
+
+plt.figure(figsize=(8,6))
+plt.bar(x, pmf, color='skyblue', edgecolor="black")
+plt.title("Binomial Distribution PMF (n=10, p=0.5)", fontsize=14)
+plt.xlabel("Number of successes (x)", fontsize=12)
+plt.ylabel("Probability", fontsize=12)
+plt.grid(True)
+plt.show()
+
+
+plt.figure(figsize=(8,6))
+plt.plot(x, cdf, color='purple', marker='o', linestyle="-", linewidth=2)
+plt.title("Binomial Distribution CDF (n=10, p=0.5)", fontsize=14)
+plt.xlabel("Number of successes (x)", fontsize=12)
+plt.ylabel("Cumulative Probability", fontsize=12)
+plt.grid(True)
+plt.show()
+
+probability_3_heads = binom.pmf(3,n,p)
+print(f"Probability of exactly 3 heads: {probability_3_heads:.4f}")
