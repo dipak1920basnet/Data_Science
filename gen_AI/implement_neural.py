@@ -18,5 +18,9 @@ df = pd.DataFrame(data)
 X = df[['feature1', 'feature2']]
 y = df[['label']]
 
+# Create a neural network
 
-# 
+model = Sequential()
+model.add(Dense(8, input_dim = 2, activation="relu"))
+model.add(Dense(2, activation = "sigmoid"))
+
